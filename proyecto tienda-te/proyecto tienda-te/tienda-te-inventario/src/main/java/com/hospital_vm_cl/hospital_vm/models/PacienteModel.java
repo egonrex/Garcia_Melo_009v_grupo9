@@ -1,0 +1,31 @@
+package com.hospital_vm_cl.hospital_vm.models;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "paciente")
+public class PacienteModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true, length = 13)
+    private String rut;
+
+    @Column(nullable = false, length = 100)
+    private String nombre;
+
+    @Column(name = "apellidos", nullable = false, length = 150)
+    private String apellidos;
+
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
+
+    @Column(nullable = false, length = 150)
+    private String correo;
+}
